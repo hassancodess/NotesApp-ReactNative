@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 // Components
 import Button from '../components/Button'
 import HeaderText from '../components/HeaderText'
 import NoteInputTitle from '../components/Notes/NoteInputTitle'
 import NoteInputDescription from '../components/Notes/NoteInputDescription'
+import CustomModal from '../components/CustomModal'
 // Navigation
 import { useNavigation, useRoute } from '@react-navigation/native'
 const AddNote = () => {
@@ -17,31 +18,45 @@ const AddNote = () => {
   const [description, setDescription] = useState(
     editDescription ? editDescription : null
   )
+  const [modalVisible, setModalVisible] = useState(false)
   // Utils
   const goBack = () => {
-    navigation.goBack()
+    if (title?.length > 3 && description?.length > 3) {
+      setModalVisible(!modalVisible)
+    } else {
+      navigation.goBack()
+    }
+  }
+  const handlesaveChange = () => {
+    setModalVisible(!modalVisible)
   }
   return (
-    <View style={styles.container}>
-      {/* Section 1 */}
-      <View style={styles.headerContainer}>
-        <Button
-          icon='arrowleft'
-          size={32}
-          style={{ marginRight: 20 }}
-          onPress={goBack}
-        />
-        <View style={styles.headerButtonsContainer}>
-          <Button icon='eye' size={32} style={{ marginRight: 20 }} />
-          <Button icon='save' size={32} />
+    <>
+      <View style={styles.container}>
+        {/* Section 1 */}
+        <View style={styles.headerContainer}>
+          <Button
+            icon='arrowleft'
+            size={32}
+            style={{ marginRight: 20 }}
+            onPress={goBack}
+          />
+          <View style={styles.headerButtonsContainer}>
+            <Button icon='eye' size={32} style={{ marginRight: 20 }} />
+            <Button icon='save' size={32} onPress={handlesaveChange} />
+          </View>
         </View>
+        <NoteInputTitle title={title} setTitle={setTitle} />
+        <NoteInputDescription
+          description={description}
+          setDescription={setDescription}
+        />
       </View>
-      <NoteInputTitle title={title} setTitle={setTitle} />
-      <NoteInputDescription
-        description={description}
-        setDescription={setDescription}
+      <CustomModal
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
       />
-    </View>
+    </>
   )
 }
 
