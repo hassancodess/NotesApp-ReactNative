@@ -4,10 +4,17 @@ import React from 'react'
 import Button from '../components/Button'
 import HeaderText from '../components/HeaderText'
 import NotesList from '../components/Notes/NotesList'
+import FAB from '../components/FAB'
 // Data
 import data from '../data/data'
+// Navigation
+import { useNavigation } from '@react-navigation/native'
 
 const Home = () => {
+  const navigation = useNavigation()
+  const navigateToAddNoteScreen = () => {
+    navigation.navigate('AddNote')
+  }
   return (
     <View style={styles.container}>
       {/* Section 1 */}
@@ -22,6 +29,7 @@ const Home = () => {
       <View style={styles.notesContainer}>
         <NotesList notes={data} />
       </View>
+      <FAB onPress={navigateToAddNoteScreen} />
     </View>
   )
 }
@@ -32,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
     paddingBottom: 20,
-    paddingHorizontal: 20,
+    paddingHorizontal: 25,
     // backgroundColor: 'red',
     flex: 1,
   },
