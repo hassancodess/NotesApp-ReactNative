@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
   },
   notesContainer: {
     flex: 2,
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
   },
 })
