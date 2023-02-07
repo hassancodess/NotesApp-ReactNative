@@ -12,6 +12,12 @@ const ViewNote = () => {
   const goBack = () => {
     navigation.goBack()
   }
+  const editNote = () => {
+    navigation.navigate('AddNote', {
+      editTitle: item.title,
+      editDescription: item.description,
+    })
+  }
   return (
     <View style={styles.container}>
       {/* Section 1 */}
@@ -22,7 +28,7 @@ const ViewNote = () => {
           style={{ marginRight: 20 }}
           onPress={goBack}
         />
-        <Button icon='edit' size={32} />
+        <Button icon='edit' size={32} onPress={editNote} />
       </View>
       <NoteTitle title={item.title} />
       <NoteDescription description={item.description} />
