@@ -17,30 +17,3 @@ const NotesList = ({ notes }) => {
 }
 
 export default NotesList
-
-const styles = StyleSheet.create({
-  rowBack: {
-    alignItems: 'center',
-    // backgroundColor: 'red',
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingLeft: 15,
-    overflow: 'hidden',
-  },
-  backRightBtn: {
-    alignItems: 'center',
-    bottom: 0,
-    justifyContent: 'center',
-    position: 'absolute',
-    top: 0,
-    width: 75,
-  },
-  backRightBtnRight: {
-    backgroundColor: 'red',
-    right: 0,
-  },
-  backTextWhite: {
-    color: '#FFF',
-  },
-})
