@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
-const Button = ({ icon, size, style }) => {
+const Button = ({ icon, size, style, onPress }) => {
   return (
-    <Pressable style={[styles.buttonContainer, style]}>
+    <Pressable style={[styles.buttonContainer, style]} onPress={onPress}>
       <AntDesign name={icon} size={size} color='white' />
     </Pressable>
   )
