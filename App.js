@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react'
+import { View } from 'react-native'
 import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
 import * as SplashScreen from 'expo-splash-screen'
+import MainNavigator from './navigator/MainNavigator'
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync()
@@ -27,19 +28,11 @@ const App = () => {
   return (
     <>
       <StatusBar style='dark' />
-      <View onLayout={onLayoutRootView}>
-        <Text style={styles.text}>App</Text>
+      <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
+        <MainNavigator />
       </View>
     </>
   )
 }
 
 export default App
-
-const styles = StyleSheet.create({
-  text: {
-    margin: 102,
-    fontSize: 50,
-    fontFamily: 'Light',
-  },
-})
