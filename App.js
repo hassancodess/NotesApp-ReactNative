@@ -4,7 +4,6 @@ import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
 import * as SplashScreen from 'expo-splash-screen'
 import MainNavigator from './navigator/MainNavigator'
-
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync()
 
@@ -27,7 +26,7 @@ const App = () => {
 
   return (
     <>
-      <StatusBar style='dark' />
+      <StatusBar style='light' />
       <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
         <MainNavigator />
       </View>
