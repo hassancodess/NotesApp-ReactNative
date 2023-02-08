@@ -15,4 +15,4 @@ A simple notes app built using React Native (Expo)
 #### Edit Note | Save Note
 
 ![Alt text](./previews/p3.png)
-![Alt text](./previews/screens.png)
+![Alt text](./previews/Screens.png)
