@@ -3,6 +3,7 @@ import { Modal, StyleSheet, Text, View } from 'react-native'
 import FlatButton from './FlatButton'
 import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
+
 const CustomModal = ({ modalVisible, setModalVisible }) => {
   const navigation = useNavigation()
   const handleDiscard = () => {
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     width: '100%',
     position: 'absolute',
     zIndex: 100,
-    backgroundColor: 'rgba(196, 196, 196, 0.4)',
+    backgroundColor: 'rgba(196, 196, 196, 0.3)',
   },
   centeredView: {
     flex: 1,
