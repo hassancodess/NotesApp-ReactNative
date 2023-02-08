@@ -15,13 +15,21 @@ const Home = () => {
   const navigateToAddNoteScreen = () => {
     navigation.navigate('AddNote')
   }
+  const navigateToSearchNoteScreen = () => {
+    navigation.navigate('SearchNote')
+  }
   return (
     <View style={styles.container}>
       {/* Section 1 */}
       <View style={styles.headerContainer}>
         <HeaderText text='Notes' />
         <View style={styles.headerButtonsContainer}>
-          <Button icon='search1' size={32} style={{ marginRight: 20 }} />
+          <Button
+            icon='search1'
+            size={32}
+            style={{ marginRight: 20 }}
+            onPress={navigateToSearchNoteScreen}
+          />
           <Button icon='exclamationcircleo' size={32} />
         </View>
       </View>
