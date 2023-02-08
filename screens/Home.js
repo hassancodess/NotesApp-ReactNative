@@ -1,16 +1,18 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 // Components
 import Button from '../components/Button'
 import HeaderText from '../components/HeaderText'
 import NotesList from '../components/Notes/NotesList'
 import FAB from '../components/FAB'
+import AboutModal from '../components/AboutModal'
 // Data
 import data from '../data/data'
 // Navigation
 import { useNavigation } from '@react-navigation/native'
 
 const Home = () => {
+  const [showAboutModal, setShowAboutModal] = useState(false)
   const navigation = useNavigation()
   const navigateToAddNoteScreen = () => {
     navigation.navigate('AddNote')
@@ -18,8 +20,15 @@ const Home = () => {
   const navigateToSearchNoteScreen = () => {
     navigation.navigate('SearchNote')
   }
+  const handleShowAboutModal = () => {
+    setShowAboutModal(!showAboutModal)
+  }
   return (
     <View style={styles.container}>
+      <AboutModal
+        showAboutModal={showAboutModal}
+        setShowAboutModal={setShowAboutModal}
+      />
       {/* Section 1 */}
       <View style={styles.headerContainer}>
         <HeaderText text='Notes' />
@@ -30,7 +39,11 @@ const Home = () => {
             style={{ marginRight: 20 }}
             onPress={navigateToSearchNoteScreen}
           />
-          <Button icon='exclamationcircleo' size={32} />
+          <Button
+            icon='exclamationcircleo'
+            size={32}
+            onPress={handleShowAboutModal}
+          />
         </View>
       </View>
       {/* Section 2 */}
