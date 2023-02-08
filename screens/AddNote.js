@@ -32,6 +32,18 @@ const AddNote = () => {
   }
   return (
     <>
+      {/* <View
+        style={{
+          height: '100%',
+          width: '100%',
+          position: 'absolute',
+          backgroundColor: 'red',
+        }}
+      ></View> */}
+      <CustomModal
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+      />
       <View style={styles.container}>
         {/* Section 1 */}
         <View style={styles.headerContainer}>
@@ -52,10 +64,6 @@ const AddNote = () => {
           setDescription={setDescription}
         />
       </View>
-      <CustomModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-      />
     </>
   )
 }
